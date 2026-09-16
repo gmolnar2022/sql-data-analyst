@@ -183,7 +183,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cél" id="toc-cél" class="nav-link active" data-scroll-target="#cél">Cél</a></li>
+  <li><a href="#kapcsolódás-az-adatbázishoz" id="toc-kapcsolódás-az-adatbázishoz" class="nav-link active" data-scroll-target="#kapcsolódás-az-adatbázishoz">Kapcsolódás az adatbázishoz</a></li>
+  <li><a href="#cél" id="toc-cél" class="nav-link" data-scroll-target="#cél">Cél</a></li>
   <li><a href="#select-és-distinct" id="toc-select-és-distinct" class="nav-link" data-scroll-target="#select-és-distinct">SELECT és DISTINCT</a>
   <ul class="collapse">
   <li><a href="#feladat" id="toc-feladat" class="nav-link" data-scroll-target="#feladat">1. feladat</a></li>
@@ -259,16 +260,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="cél" class="level2">
-<h2 class="anchored" data-anchor-id="cél">Cél</h2>
-<p>A gyakorlat célja az első <code>SELECT</code> lekérdezések elkészítése az AdventureWorksLT adatbázison. A feladatok sorrendje követi az elméleti anyagot.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="kapcsolódás-az-adatbázishoz" class="level2">
+<h2 class="anchored" data-anchor-id="kapcsolódás-az-adatbázishoz">Kapcsolódás az adatbázishoz</h2>
+<p>A feladatok megoldásához kapcsolódjon az <code>Adventureworks</code> adatbázishoz <strong>Azure Data Studio vagy SQL Server Management Studio (SSMS)</strong> használatával. A kapcsolat létrehozásakor az alábbi adatokat adja meg.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/database-connection.png" class="img-fluid figure-img" alt="Az AdventureWorks adatbázishoz tartozó kapcsolat beállításai Azure Data Studio vagy SSMS használatához." width="720"></p>
+<figcaption>Az adatbázis-kapcsolat beállításai</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Jelszó">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Jelszó
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Password12345</code></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Otthoni elérés">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Otthoni elérés
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Az adatbázis <strong>otthonról csak Corvinus VPN-kapcsolaton keresztül érhető el</strong>. A VPN-kapcsolatot az adatbázishoz történő csatlakozás előtt hozza létre.</p>
+</div>
+</div>
+</section>
+<section id="cél" class="level2">
+<h2 class="anchored" data-anchor-id="cél">Cél</h2>
+<p>A gyakorlat célja az első <code>SELECT</code> lekérdezések elkészítése az AdventureWorksLT adatbázison. A feladatok sorrendje követi az elméleti anyagot.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Megjegyzés">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Megjegyzés
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -280,25 +317,25 @@ Note
 <h2 class="anchored" data-anchor-id="select-és-distinct">SELECT és DISTINCT</h2>
 <section id="feladat" class="level3">
 <h3 class="anchored" data-anchor-id="feladat">1. feladat</h3>
-<p>Listázza a <code>SalesLT.Product</code> tábla összes adatát! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a <code>SalesLT.Product</code> tábla összes adatát! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> SalesLT.Product;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-1" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-1">2. feladat</h3>
-<p>Listázza a termékek nevét (<code>Name</code>) és listaárát (<code>ListPrice</code>)! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a termékek nevét (<code>Name</code>) és listaárát (<code>ListPrice</code>)! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice <span class="kw">FROM</span> SalesLT.Product;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-2" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-2">3. feladat</h3>
-<p>Listázza a termékek azonosítóját, nevét, színét és listaárát ebben a sorrendben! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a termékek azonosítóját, nevét, színét és listaárát ebben a sorrendben! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ProductID, Name, Color, ListPrice <span class="kw">FROM</span> SalesLT.Product;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-3" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-3">4. feladat</h3>
-<p>Listázza, milyen különböző színek (<code>Color</code>) fordulnak elő a termékek között! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza, milyen különböző színek (<code>Color</code>) fordulnak elő a termékek között! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> Color <span class="kw">FROM</span> SalesLT.Product;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
@@ -307,20 +344,20 @@ Note
 <h2 class="anchored" data-anchor-id="számított-oszlopok-és-alias">Számított oszlopok és alias</h2>
 <section id="feladat-4" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-4">5. feladat</h3>
-<p>Listázza a termék nevét és listaárát! A listaár oszlop jelenjen meg <code>Price</code> néven! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a termék nevét és listaárát! A listaár oszlop jelenjen meg <code>Price</code> néven! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice <span class="kw">AS</span> Price <span class="kw">FROM</span> SalesLT.Product;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-5" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-5">6. feladat</h3>
-<p>Listázza a termék nevét, listaárát és a listaár 10%-kal növelt értékét <code>IncreasedPrice</code> néven! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a termék nevét, listaárát és a listaár 10%-kal növelt értékét <code>IncreasedPrice</code> néven! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice, ListPrice <span class="op">*</span> <span class="fl">1.10</span> <span class="kw">AS</span> IncreasedPrice</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> SalesLT.Product;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-6" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-6">7. feladat</h3>
-<p>Listázza a termék nevét, standard költségét és listaárát, valamint a kettő különbségét <code>Difference</code> néven! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a termék nevét, standard költségét és listaárát, valamint a kettő különbségét <code>Difference</code> néven! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, StandardCost, ListPrice,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       ListPrice <span class="op">-</span> StandardCost <span class="kw">AS</span> Difference</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> SalesLT.Product;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -331,28 +368,28 @@ Note
 <h2 class="anchored" data-anchor-id="szűrés-where">Szűrés – WHERE</h2>
 <section id="feladat-7" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-7">8. feladat</h3>
-<p>Listázza azokat a termékeket, amelyek listaára nagyobb 1000-nél! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyek listaára nagyobb 1000-nél! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> ListPrice <span class="op">&gt;</span> <span class="dv">1000</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-8" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-8">9. feladat</h3>
-<p>Listázza a fekete (<code>Black</code>) termékek nevét, színét és listaárát! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a fekete (<code>Black</code>) termékek nevét, színét és listaárát! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Color <span class="op">=</span> <span class="st">'Black'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-9" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-9">10. feladat</h3>
-<p>Listázza azokat a fekete termékeket, amelyek listaára nagyobb 1000-nél! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a fekete termékeket, amelyek listaára nagyobb 1000-nél! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Color <span class="op">=</span> <span class="st">'Black'</span> <span class="kw">AND</span> ListPrice <span class="op">&gt;</span> <span class="dv">1000</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-10" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-10">11. feladat</h3>
-<p>Listázza azokat a termékeket, amelyek színe fekete vagy piros (<code>Red</code>)! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyek színe fekete vagy piros (<code>Red</code>)! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Color <span class="op">=</span> <span class="st">'Black'</span> <span class="kw">OR</span> Color <span class="op">=</span> <span class="st">'Red'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
@@ -362,28 +399,28 @@ Note
 <h2 class="anchored" data-anchor-id="between-in-és-like">BETWEEN, IN és LIKE</h2>
 <section id="feladat-11" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-11">12. feladat</h3>
-<p>Listázza azokat a termékeket, amelyek listaára 500 és 1000 között van! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyek listaára 500 és 1000 között van! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> ListPrice <span class="kw">BETWEEN</span> <span class="dv">500</span> <span class="kw">AND</span> <span class="dv">1000</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-12" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-12">13. feladat</h3>
-<p>Listázza a fekete, piros vagy kék (<code>Blue</code>) termékeket! Használja az <code>IN</code> operátort! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a fekete, piros vagy kék (<code>Blue</code>) termékeket! Használja az <code>IN</code> operátort! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Color <span class="kw">IN</span> (<span class="st">'Black'</span>, <span class="st">'Red'</span>, <span class="st">'Blue'</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-13" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-13">14. feladat</h3>
-<p>Listázza azokat a termékeket, amelyek neve <code>Mountain</code> szóval kezdődik! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyek neve <code>Mountain</code> szóval kezdődik! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Name <span class="kw">LIKE</span> <span class="st">'Mountain%'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-14" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-14">15. feladat</h3>
-<p>Listázza azokat a termékeket, amelyek nevében bárhol szerepel a <code>Bike</code> karaktersorozat! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyek nevében bárhol szerepel a <code>Bike</code> karaktersorozat! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Name <span class="kw">LIKE</span> <span class="st">'%Bike%'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
@@ -393,14 +430,14 @@ Note
 <h2 class="anchored" data-anchor-id="null-értékek">NULL értékek</h2>
 <section id="feladat-15" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-15">16. feladat</h3>
-<p>Listázza azokat a termékeket, amelyeknél nincs megadva szín! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyeknél nincs megadva szín! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Color <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-16" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-16">17. feladat</h3>
-<p>Listázza azokat a termékeket, amelyeknél van megadva szín! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyeknél van megadva szín! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Color <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
@@ -410,14 +447,14 @@ Note
 <h2 class="anchored" data-anchor-id="rendezés">Rendezés</h2>
 <section id="feladat-17" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-17">18. feladat</h3>
-<p>Listázza a termékek nevét és listaárát a listaár szerint csökkenő sorrendben! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a termékek nevét és listaárát a listaár szerint csökkenő sorrendben! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ListPrice <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
 </section>
 <section id="feladat-18" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-18">19. feladat</h3>
-<p>Listázza a termékek nevét, színét és listaárát! Rendezze az eredményt először szín, azon belül listaár szerint csökkenő sorrendbe! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a termékek nevét, színét és listaárát! Rendezze az eredményt először szín, azon belül listaár szerint csökkenő sorrendbe! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Color, ListPrice <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>:::</p>
@@ -427,7 +464,7 @@ Note
 <h2 class="anchored" data-anchor-id="egyszerű-függvények">Egyszerű függvények</h2>
 <section id="feladat-19" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-19">20. feladat</h3>
-<p>Listázza a termékek nevét, a név hosszát <code>NameLength</code>, valamint a módosítás évét <code>ModifiedYear</code> néven! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a termékek nevét, a név hosszát <code>NameLength</code>, valamint a módosítás évét <code>ModifiedYear</code> néven! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, LEN(Name) <span class="kw">AS</span> NameLength,</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>       <span class="dt">YEAR</span>(ModifiedDate) <span class="kw">AS</span> ModifiedYear</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> SalesLT.Product;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -439,7 +476,7 @@ Note
 <p>Az alábbi feladatoknál már Önnek kell kiválasztania a megfelelő SQL-eszközöket.</p>
 <section id="feladat-20" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-20">21. feladat</h3>
-<p>Listázza azoknak a termékeknek a nevét, színét és listaárát, amelyek színe <code>Black</code>, <code>Red</code> vagy <code>Silver</code>, és listaáruk legalább 1000! Az eredményt listaár szerint csökkenő sorrendben jelenítse meg! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azoknak a termékeknek a nevét, színét és listaárát, amelyek színe <code>Black</code>, <code>Red</code> vagy <code>Silver</code>, és listaáruk legalább 1000! Az eredményt listaár szerint csökkenő sorrendben jelenítse meg! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color, ListPrice <span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Color <span class="kw">IN</span> (<span class="st">'Black'</span>, <span class="st">'Red'</span>, <span class="st">'Silver'</span>) <span class="kw">AND</span> ListPrice <span class="op">&gt;=</span> <span class="dv">1000</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ListPrice <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -447,7 +484,7 @@ Note
 </section>
 <section id="feladat-21" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-21">22. feladat</h3>
-<p>Listázza azokat a termékeket, amelyek nevében szerepel a <code>Mountain</code> szó! Jelenítse meg a termék nevét, listaárát és a listaár 20%-kal csökkentett értékét <code>DiscountPrice</code> néven! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyek nevében szerepel a <code>Mountain</code> szó! Jelenítse meg a termék nevét, listaárát és a listaár 20%-kal csökkentett értékét <code>DiscountPrice</code> néven! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, ListPrice, ListPrice <span class="op">*</span> <span class="fl">0.80</span> <span class="kw">AS</span> DiscountPrice</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Name <span class="kw">LIKE</span> <span class="st">'%Mountain%'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -455,7 +492,7 @@ Note
 </section>
 <section id="feladat-22" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-22">23. feladat</h3>
-<p>Listázza azokat a termékeket, amelyek listaára 100 és 500 között van, és nevük <code>L</code> betűvel kezdődik! A név jelenjen meg nagybetűkkel is <code>UpperName</code> néven! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a termékeket, amelyek listaára 100 és 500 között van, és nevük <code>L</code> betűvel kezdődik! A név jelenjen meg nagybetűkkel is <code>UpperName</code> néven! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, <span class="fu">UPPER</span>(Name) <span class="kw">AS</span> UpperName, ListPrice</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> SalesLT.Product</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> ListPrice <span class="kw">BETWEEN</span> <span class="dv">100</span> <span class="kw">AND</span> <span class="dv">500</span> <span class="kw">AND</span> Name <span class="kw">LIKE</span> <span class="st">'L%'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -463,7 +500,7 @@ Note
 </section>
 <section id="feladat-23" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-23">24. feladat</h3>
-<p>Listázza a <code>SalesLT.Customer</code> táblából azoknak az ügyfeleknek a keresztnevét, vezetéknevét és cégnevét, akiknek a keresztneve <code>J</code> betűvel vagy vezetékneve <code>S</code> betűvel kezdődik! Rendezze az eredményt vezetéknév, majd keresztnév szerint! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza a <code>SalesLT.Customer</code> táblából azoknak az ügyfeleknek a keresztnevét, vezetéknevét és cégnevét, akiknek a keresztneve <code>J</code> betűvel vagy vezetékneve <code>S</code> betűvel kezdődik! Rendezze az eredményt vezetéknév, majd keresztnév szerint! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> FirstName, LastName, CompanyName <span class="kw">FROM</span> SalesLT.Customer</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> FirstName <span class="kw">LIKE</span> <span class="st">'J%'</span> <span class="kw">OR</span> LastName <span class="kw">LIKE</span> <span class="st">'S%'</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> LastName, FirstName;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -471,7 +508,7 @@ Note
 </section>
 <section id="feladat-challenge" class="level3">
 <h3 class="anchored" data-anchor-id="feladat-challenge">25. feladat – Challenge</h3>
-<p>Listázza azokat a <code>Black</code> vagy <code>Red</code> színű termékeket, amelyek listaára 500 és 2000 között van! Jelenítse meg nevüket, színüket, listaárukat, standard költségüket és a listaár és standard költség különbségét <code>PriceDifference</code> néven! Az eredményt a különbség szerint csökkenő sorrendben jelenítse meg! ::: {.callout-tip collapse=“true”} ## Megoldás</p>
+<p>Listázza azokat a <code>Black</code> vagy <code>Red</code> színű termékeket, amelyek listaára 500 és 2000 között van! Jelenítse meg nevüket, színüket, listaárukat, standard költségüket és a listaár és standard költség különbségét <code>PriceDifference</code> néven! Az eredményt a különbség szerint csökkenő sorrendben jelenítse meg! ::: {.callout-tip title=“Megoldás” collapse=“true”}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Color, ListPrice, StandardCost,</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       ListPrice <span class="op">-</span> StandardCost <span class="kw">AS</span> PriceDifference</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> SalesLT.Product</span>
