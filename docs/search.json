@@ -244,7 +244,7 @@
     "href": "week01/practical.html#select-és-distinct",
     "title": "1. hét – Egyszerű SQL-lekérdezések",
     "section": "SELECT és DISTINCT",
-    "text": "SELECT és DISTINCT\n\n1. feladat\nListázza a SalesLT.Product tábla összes adatát!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT * FROM SalesLT.Product;\n\n\n\n\n\n2. feladat\nListázza a termékek nevét (Name) és listaárát (ListPrice)!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice FROM SalesLT.Product;\n\n\n\n\n\n3. feladat\nListázza a termékek azonosítóját, nevét, színét és listaárát ebben a sorrendben!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT ProductID, Name, Color, ListPrice FROM SalesLT.Product;\n\n\n\n\n\n4. feladat\nListázza, milyen különböző színek (Color) fordulnak elő a termékek között!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT DISTINCT Color FROM SalesLT.Product;",
+    "text": "SELECT és DISTINCT\n\n1. feladat\nListázza a SalesLT.Product tábla összes adatát!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT *\nFROM SalesLT.Product\n\n\n\n\n\n2. feladat\nListázza a termékek nevét (Name) és listaárát (ListPrice)!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice\nFROM SalesLT.Product\n\n\n\n\n\n3. feladat\nListázza a termékek azonosítóját, nevét, színét és listaárát ebben a sorrendben!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT ProductID,\n       Name,\n       Color,\n       ListPrice\nFROM SalesLT.Product\n\n\n\n\n\n4. feladat\nListázza, milyen különböző színek (Color) fordulnak elő a termékek között!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT DISTINCT Color\nFROM SalesLT.Product",
     "crumbs": [
       "1. hét – Relációs adatbázisok és SQL alapok",
       "Gyakorlat"
@@ -255,7 +255,7 @@
     "href": "week01/practical.html#számított-oszlopok-és-alias",
     "title": "1. hét – Egyszerű SQL-lekérdezések",
     "section": "Számított oszlopok és alias",
-    "text": "Számított oszlopok és alias\n\n5. feladat\nListázza a termék nevét és listaárát! A listaár oszlop jelenjen meg Price néven!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice AS Price FROM SalesLT.Product;\n\n\n\n\n\n6. feladat\nListázza a termék nevét, listaárát és a listaár 10%-kal növelt értékét IncreasedPrice néven!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice, ListPrice * 1.10 AS IncreasedPrice\nFROM SalesLT.Product;\n\n\n\n\n\n7. feladat\nListázza a termék nevét, standard költségét és listaárát, valamint a kettő különbségét Difference néven!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, StandardCost, ListPrice,\n       ListPrice - StandardCost AS Difference\nFROM SalesLT.Product;",
+    "text": "Számított oszlopok és alias\n\n5. feladat\nListázza a termék nevét és listaárát! A listaár oszlop jelenjen meg Price néven!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       ListPrice AS Price\nFROM SalesLT.Product\n\n\n\n\n\n6. feladat\nListázza a termék nevét, listaárát és a listaár 10%-kal növelt értékét IncreasedPrice néven!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       ListPrice,\n       ListPrice * 1.10 AS IncreasedPrice\nFROM SalesLT.Product\n\n\n\n\n\n7. feladat\nListázza a termék nevét, standard költségét és listaárát, valamint a kettő különbségét Difference néven!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       StandardCost,\n       ListPrice,\n       ListPrice - StandardCost AS Difference\nFROM SalesLT.Product",
     "crumbs": [
       "1. hét – Relációs adatbázisok és SQL alapok",
       "Gyakorlat"
@@ -266,7 +266,7 @@
     "href": "week01/practical.html#szűrés-where",
     "title": "1. hét – Egyszerű SQL-lekérdezések",
     "section": "Szűrés – WHERE",
-    "text": "Szűrés – WHERE\n\n8. feladat\nListázza azokat a termékeket, amelyek listaára nagyobb 1000-nél!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice FROM SalesLT.Product\nWHERE ListPrice &gt; 1000;\n\n\n\n\n\n9. feladat\nListázza a fekete (Black) termékek nevét, színét és listaárát!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color, ListPrice FROM SalesLT.Product\nWHERE Color = 'Black';\n\n\n\n\n\n10. feladat\nListázza azokat a fekete termékeket, amelyek listaára nagyobb 1000-nél!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color, ListPrice FROM SalesLT.Product\nWHERE Color = 'Black' AND ListPrice &gt; 1000;\n\n\n\n\n\n11. feladat\nListázza azokat a termékeket, amelyek színe fekete vagy piros (Red)!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color, ListPrice FROM SalesLT.Product\nWHERE Color = 'Black' OR Color = 'Red';",
+    "text": "Szűrés – WHERE\n\n8. feladat\nListázza azokat a termékeket, amelyek listaára nagyobb 1000-nél!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice\nFROM SalesLT.Product\nWHERE ListPrice &gt; 1000\n\n\n\n\n\n9. feladat\nListázza a fekete (Black) termékek nevét, színét és listaárát!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       Color,\n       ListPrice\nFROM SalesLT.Product\nWHERE Color = 'Black'\n\n\n\n\n\n10. feladat\nListázza azokat a fekete termékeket, amelyek listaára nagyobb 1000-nél!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       Color,\n       ListPrice\nFROM SalesLT.Product\nWHERE Color = 'Black'\n  AND ListPrice &gt; 1000\n\n\n\n\n\n11. feladat\nListázza azokat a termékeket, amelyek színe fekete vagy piros (Red)!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       Color,\n       ListPrice\nFROM SalesLT.Product\nWHERE Color = 'Black'\n   OR Color = 'Red'",
     "crumbs": [
       "1. hét – Relációs adatbázisok és SQL alapok",
       "Gyakorlat"
@@ -277,7 +277,7 @@
     "href": "week01/practical.html#between-in-és-like",
     "title": "1. hét – Egyszerű SQL-lekérdezések",
     "section": "BETWEEN, IN és LIKE",
-    "text": "BETWEEN, IN és LIKE\n\n12. feladat\nListázza azokat a termékeket, amelyek listaára 500 és 1000 között van!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice FROM SalesLT.Product\nWHERE ListPrice BETWEEN 500 AND 1000;\n\n\n\n\n\n13. feladat\nListázza a fekete, piros vagy kék (Blue) termékeket! Használja az IN operátort!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color, ListPrice FROM SalesLT.Product\nWHERE Color IN ('Black', 'Red', 'Blue');\n\n\n\n\n\n14. feladat\nListázza azokat a termékeket, amelyek neve Mountain szóval kezdődik!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice FROM SalesLT.Product\nWHERE Name LIKE 'Mountain%';\n\n\n\n\n\n15. feladat\nListázza azokat a termékeket, amelyek nevében bárhol szerepel a Bike karaktersorozat!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice FROM SalesLT.Product\nWHERE Name LIKE '%Bike%';",
+    "text": "BETWEEN, IN és LIKE\n\n12. feladat\nListázza azokat a termékeket, amelyek listaára 500 és 1000 között van!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice\nFROM SalesLT.Product\nWHERE ListPrice BETWEEN 500 AND 1000\n\n\n\n\n\n13. feladat\nListázza a fekete, piros vagy kék (Blue) termékeket! Használja az IN operátort!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       Color,\n       ListPrice\nFROM SalesLT.Product\nWHERE Color IN ('Black', 'Red', 'Blue')\n\n\n\n\n\n14. feladat\nListázza azokat a termékeket, amelyek neve Mountain szóval kezdődik!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice\nFROM SalesLT.Product\nWHERE Name LIKE 'Mountain%'\n\n\n\n\n\n15. feladat\nListázza azokat a termékeket, amelyek nevében bárhol szerepel a Bike karaktersorozat!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice\nFROM SalesLT.Product\nWHERE Name LIKE '%Bike%'",
     "crumbs": [
       "1. hét – Relációs adatbázisok és SQL alapok",
       "Gyakorlat"
@@ -288,7 +288,7 @@
     "href": "week01/practical.html#null-értékek",
     "title": "1. hét – Egyszerű SQL-lekérdezések",
     "section": "NULL értékek",
-    "text": "NULL értékek\n\n16. feladat\nListázza azokat a termékeket, amelyeknél nincs megadva szín!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color FROM SalesLT.Product\nWHERE Color IS NULL;\n\n\n\n\n\n17. feladat\nListázza azokat a termékeket, amelyeknél van megadva szín!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color FROM SalesLT.Product\nWHERE Color IS NOT NULL;",
+    "text": "NULL értékek\n\n16. feladat\nListázza azokat a termékeket, amelyeknél nincs megadva szín!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color\nFROM SalesLT.Product\nWHERE Color IS NULL\n\n\n\n\n\n17. feladat\nListázza azokat a termékeket, amelyeknél van megadva szín!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color\nFROM SalesLT.Product\nWHERE Color IS NOT NULL",
     "crumbs": [
       "1. hét – Relációs adatbázisok és SQL alapok",
       "Gyakorlat"
@@ -299,7 +299,7 @@
     "href": "week01/practical.html#rendezés",
     "title": "1. hét – Egyszerű SQL-lekérdezések",
     "section": "Rendezés",
-    "text": "Rendezés\n\n18. feladat\nListázza a termékek nevét és listaárát a listaár szerint csökkenő sorrendben!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice FROM SalesLT.Product\nORDER BY ListPrice DESC;\n\n\n\n\n\n19. feladat\nListázza a termékek nevét, színét és listaárát! Rendezze az eredményt először szín, azon belül listaár szerint csökkenő sorrendbe!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, Color, ListPrice FROM SalesLT.Product\nORDER BY Color, ListPrice DESC;",
+    "text": "Rendezés\n\n18. feladat\nListázza a termékek nevét és listaárát a listaár szerint csökkenő sorrendben!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, ListPrice\nFROM SalesLT.Product\nORDER BY ListPrice DESC\n\n\n\n\n\n19. feladat\nListázza a termékek nevét, színét és listaárát! Rendezze az eredményt először szín, azon belül listaár szerint csökkenő sorrendbe!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       Color,\n       ListPrice\nFROM SalesLT.Product\nORDER BY Color, ListPrice DESC",
     "crumbs": [
       "1. hét – Relációs adatbázisok és SQL alapok",
       "Gyakorlat"
@@ -310,7 +310,7 @@
     "href": "week01/practical.html#egyszerű-függvények",
     "title": "1. hét – Egyszerű SQL-lekérdezések",
     "section": "Egyszerű függvények",
-    "text": "Egyszerű függvények\n\n20. feladat\nListázza a termékek nevét, a név hosszát NameLength, valamint a módosítás évét ModifiedYear néven!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name, LEN(Name) AS NameLength,\n       YEAR(ModifiedDate) AS ModifiedYear\nFROM SalesLT.Product;",
+    "text": "Egyszerű függvények\n\n20. feladat\nListázza a termékek nevét, a név hosszát NameLength, valamint a módosítás évét ModifiedYear néven!\n\n\n\n\n\n\nTipMegoldás\n\n\n\n\n\nSELECT Name,\n       LEN(Name) AS NameLength,\n       YEAR(ModifiedDate) AS ModifiedYear\nFROM SalesLT.Product",
     "crumbs": [
       "1. hét – Relációs adatbázisok és SQL alapok",
       "Gyakorlat"

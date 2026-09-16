@@ -39,7 +39,8 @@ Listázza a `SalesLT.Product` tábla összes adatát!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT * FROM SalesLT.Product;
+SELECT *
+FROM SalesLT.Product
 ```
 
 :::
@@ -50,7 +51,8 @@ Listázza a termékek nevét (`Name`) és listaárát (`ListPrice`)!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice FROM SalesLT.Product;
+SELECT Name, ListPrice
+FROM SalesLT.Product
 ```
 
 :::
@@ -61,7 +63,11 @@ Listázza a termékek azonosítóját, nevét, színét és listaárát ebben a 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT ProductID, Name, Color, ListPrice FROM SalesLT.Product;
+SELECT ProductID,
+       Name,
+       Color,
+       ListPrice
+FROM SalesLT.Product
 ```
 
 :::
@@ -72,7 +78,8 @@ Listázza, milyen különböző színek (`Color`) fordulnak elő a termékek kö
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT DISTINCT Color FROM SalesLT.Product;
+SELECT DISTINCT Color
+FROM SalesLT.Product
 ```
 
 :::
@@ -85,7 +92,9 @@ Listázza a termék nevét és listaárát! A listaár oszlop jelenjen meg `Pric
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice AS Price FROM SalesLT.Product;
+SELECT Name,
+       ListPrice AS Price
+FROM SalesLT.Product
 ```
 
 :::
@@ -96,8 +105,10 @@ Listázza a termék nevét, listaárát és a listaár 10%-kal növelt értéké
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice, ListPrice * 1.10 AS IncreasedPrice
-FROM SalesLT.Product;
+SELECT Name,
+       ListPrice,
+       ListPrice * 1.10 AS IncreasedPrice
+FROM SalesLT.Product
 ```
 
 :::
@@ -108,9 +119,11 @@ Listázza a termék nevét, standard költségét és listaárát, valamint a ke
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, StandardCost, ListPrice,
+SELECT Name,
+       StandardCost,
+       ListPrice,
        ListPrice - StandardCost AS Difference
-FROM SalesLT.Product;
+FROM SalesLT.Product
 ```
 
 :::
@@ -123,8 +136,9 @@ Listázza azokat a termékeket, amelyek listaára nagyobb 1000-nél!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice FROM SalesLT.Product
-WHERE ListPrice > 1000;
+SELECT Name, ListPrice
+FROM SalesLT.Product
+WHERE ListPrice > 1000
 ```
 
 :::
@@ -135,8 +149,11 @@ Listázza a fekete (`Black`) termékek nevét, színét és listaárát!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color, ListPrice FROM SalesLT.Product
-WHERE Color = 'Black';
+SELECT Name,
+       Color,
+       ListPrice
+FROM SalesLT.Product
+WHERE Color = 'Black'
 ```
 
 :::
@@ -147,8 +164,12 @@ Listázza azokat a fekete termékeket, amelyek listaára nagyobb 1000-nél!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color, ListPrice FROM SalesLT.Product
-WHERE Color = 'Black' AND ListPrice > 1000;
+SELECT Name,
+       Color,
+       ListPrice
+FROM SalesLT.Product
+WHERE Color = 'Black'
+  AND ListPrice > 1000
 ```
 
 :::
@@ -159,8 +180,12 @@ Listázza azokat a termékeket, amelyek színe fekete vagy piros (`Red`)!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color, ListPrice FROM SalesLT.Product
-WHERE Color = 'Black' OR Color = 'Red';
+SELECT Name,
+       Color,
+       ListPrice
+FROM SalesLT.Product
+WHERE Color = 'Black'
+   OR Color = 'Red'
 ```
 
 :::
@@ -173,8 +198,9 @@ Listázza azokat a termékeket, amelyek listaára 500 és 1000 között van!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice FROM SalesLT.Product
-WHERE ListPrice BETWEEN 500 AND 1000;
+SELECT Name, ListPrice
+FROM SalesLT.Product
+WHERE ListPrice BETWEEN 500 AND 1000
 ```
 
 :::
@@ -185,8 +211,11 @@ Listázza a fekete, piros vagy kék (`Blue`) termékeket! Használja az `IN` ope
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color, ListPrice FROM SalesLT.Product
-WHERE Color IN ('Black', 'Red', 'Blue');
+SELECT Name,
+       Color,
+       ListPrice
+FROM SalesLT.Product
+WHERE Color IN ('Black', 'Red', 'Blue')
 ```
 
 :::
@@ -197,8 +226,9 @@ Listázza azokat a termékeket, amelyek neve `Mountain` szóval kezdődik!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice FROM SalesLT.Product
-WHERE Name LIKE 'Mountain%';
+SELECT Name, ListPrice
+FROM SalesLT.Product
+WHERE Name LIKE 'Mountain%'
 ```
 
 :::
@@ -209,8 +239,9 @@ Listázza azokat a termékeket, amelyek nevében bárhol szerepel a `Bike` karak
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice FROM SalesLT.Product
-WHERE Name LIKE '%Bike%';
+SELECT Name, ListPrice
+FROM SalesLT.Product
+WHERE Name LIKE '%Bike%'
 ```
 
 :::
@@ -223,8 +254,9 @@ Listázza azokat a termékeket, amelyeknél nincs megadva szín!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color FROM SalesLT.Product
-WHERE Color IS NULL;
+SELECT Name, Color
+FROM SalesLT.Product
+WHERE Color IS NULL
 ```
 
 :::
@@ -235,8 +267,9 @@ Listázza azokat a termékeket, amelyeknél van megadva szín!
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color FROM SalesLT.Product
-WHERE Color IS NOT NULL;
+SELECT Name, Color
+FROM SalesLT.Product
+WHERE Color IS NOT NULL
 ```
 
 :::
@@ -249,8 +282,9 @@ Listázza a termékek nevét és listaárát a listaár szerint csökkenő sorre
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice FROM SalesLT.Product
-ORDER BY ListPrice DESC;
+SELECT Name, ListPrice
+FROM SalesLT.Product
+ORDER BY ListPrice DESC
 ```
 
 :::
@@ -261,8 +295,11 @@ Listázza a termékek nevét, színét és listaárát! Rendezze az eredményt e
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color, ListPrice FROM SalesLT.Product
-ORDER BY Color, ListPrice DESC;
+SELECT Name,
+       Color,
+       ListPrice
+FROM SalesLT.Product
+ORDER BY Color, ListPrice DESC
 ```
 
 :::
@@ -275,9 +312,10 @@ Listázza a termékek nevét, a név hosszát `NameLength`, valamint a módosít
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, LEN(Name) AS NameLength,
+SELECT Name,
+       LEN(Name) AS NameLength,
        YEAR(ModifiedDate) AS ModifiedYear
-FROM SalesLT.Product;
+FROM SalesLT.Product
 ```
 
 :::
@@ -292,9 +330,13 @@ Listázza azoknak a termékeknek a nevét, színét és listaárát, amelyek sz�
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color, ListPrice FROM SalesLT.Product
-WHERE Color IN ('Black', 'Red', 'Silver') AND ListPrice >= 1000
-ORDER BY ListPrice DESC;
+SELECT Name,
+       Color,
+       ListPrice
+FROM SalesLT.Product
+WHERE Color IN ('Black', 'Red', 'Silver')
+  AND ListPrice >= 1000
+ORDER BY ListPrice DESC
 ```
 
 :::
@@ -305,9 +347,11 @@ Listázza azokat a termékeket, amelyek nevében szerepel a `Mountain` szó! Jel
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, ListPrice, ListPrice * 0.80 AS DiscountPrice
+SELECT Name,
+       ListPrice,
+       ListPrice * 0.80 AS DiscountPrice
 FROM SalesLT.Product
-WHERE Name LIKE '%Mountain%';
+WHERE Name LIKE '%Mountain%'
 ```
 
 :::
@@ -318,9 +362,12 @@ Listázza azokat a termékeket, amelyek listaára 100 és 500 között van, és 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, UPPER(Name) AS UpperName, ListPrice
+SELECT Name,
+       UPPER(Name) AS UpperName,
+       ListPrice
 FROM SalesLT.Product
-WHERE ListPrice BETWEEN 100 AND 500 AND Name LIKE 'L%';
+WHERE ListPrice BETWEEN 100 AND 500
+  AND Name LIKE 'L%'
 ```
 
 :::
@@ -331,9 +378,13 @@ Listázza a `SalesLT.Customer` táblából azoknak az ügyfeleknek a keresztnev�
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT FirstName, LastName, CompanyName FROM SalesLT.Customer
-WHERE FirstName LIKE 'J%' OR LastName LIKE 'S%'
-ORDER BY LastName, FirstName;
+SELECT FirstName,
+       LastName,
+       CompanyName
+FROM SalesLT.Customer
+WHERE FirstName LIKE 'J%'
+   OR LastName LIKE 'S%'
+ORDER BY LastName, FirstName
 ```
 
 :::
@@ -344,12 +395,15 @@ Listázza azokat a `Black` vagy `Red` színű termékeket, amelyek listaára 500
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
-SELECT Name, Color, ListPrice, StandardCost,
+SELECT Name,
+       Color,
+       ListPrice,
+       StandardCost,
        ListPrice - StandardCost AS PriceDifference
 FROM SalesLT.Product
 WHERE Color IN ('Black', 'Red')
   AND ListPrice BETWEEN 500 AND 2000
-ORDER BY PriceDifference DESC;
+ORDER BY PriceDifference DESC
 ```
 
 :::
