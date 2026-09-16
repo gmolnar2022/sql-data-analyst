@@ -1,0 +1,220 @@
+---
+title: "1. hét – Relációs adatbázisok és SQL alapok"
+subtitle: "Elmélet"
+---
+
+## Adatok az elemzői munkában
+
+Az adatelemző munkájának kiindulópontja gyakran egy táblázatos adathalmaz. Excelben egyetlen munkalapon is tárolhatunk például rendelési azonosítót, dátumot, vevőt, várost, terméket, kategóriát, mennyiséget és árat. Kis adatmennyiségnél ez kényelmes, de az adatok növekedésével egyre fontosabbá válik a strukturált tárolás.
+
+Tipikus elemzői kérdések például: mely termékekből adtunk el a legtöbbet, mely vevők vásároltak a legtöbbet, vagy hogyan változott az értékesítés időben.
+
+## Excel-táblázat vagy adatbázis?
+
+A táblázatkezelő elsősorban számításra, gyors elemzésre és vizualizációra alkalmas. Az adatbázis ezzel szemben nagyobb, strukturált adatmennyiség tartós és konzisztens tárolását, több felhasználó munkáját és hatékony lekérdezését támogatja.
+
+Ha minden adatot egyetlen nagy táblában tárolunk, ugyanazok a vevő-, termék- vagy kategóriaadatok sokszor ismétlődhetnek. Ez redundanciához és módosítási problémákhoz vezethet. Relációs adatbázisban az adatokat egymással kapcsolatban álló táblákra bontjuk.
+
+## Adatmodell
+
+Az adatmodell meghatározza, hogyan ábrázoljuk az adatokat, azok tulajdonságait és kapcsolatait. A relációs adatmodellben az adatokat táblákban tároljuk.
+
+Egy **tábla** sorokból és oszlopokból áll. Egy sor egy konkrét előfordulást (rekordot), egy oszlop pedig egy tulajdonságot ír le.
+
+## A relációs adatmodell
+
+A relációs modellben az egyes fogalmakat külön táblák reprezentálják. Például egy `ACCOUNT` tábla számlák adatait, egy `CONTRACT` tábla pedig szerződéseket tartalmazhat. A táblák között az azonosítók teremtenek kapcsolatot.
+
+### Kapcsolatok
+
+A leggyakoribb kapcsolattípusok:
+
+- **1:1** – egy rekordhoz legfeljebb egy rekord tartozik a másik táblában;
+- **1:N** – egy rekordhoz több rekord is tartozhat;
+- **M:N** – mindkét oldalon több rekord kapcsolódhat egymáshoz.
+
+Az M:N kapcsolatot relációs adatbázisban általában egy kapcsolótáblával bontjuk két 1:N kapcsolatra.
+
+## Kulcsok
+
+Az **elsődleges kulcs (PRIMARY KEY)** egyértelműen azonosítja a tábla sorait. Értéke ezért egyedi, és nem lehet `NULL`.
+
+Az **idegen kulcs (FOREIGN KEY)** egy másik tábla kulcsára hivatkozik, és ezzel teremti meg a táblák közötti kapcsolatot.
+
+## Integritási kényszerek
+
+A kényszerek az adatok helyességének megőrzését segítik. Tipikus kényszerek:
+
+- `PRIMARY KEY` – egyedi sorazonosító;
+- `FOREIGN KEY` – táblák közötti kapcsolat;
+- `NOT NULL` – az érték megadása kötelező;
+- `UNIQUE` – az érték nem ismétlődhet;
+- `CHECK` – az értéknek egy feltételt kell teljesítenie;
+- `DEFAULT` – alapértelmezett érték.
+
+## Adatbázis és DBMS
+
+Az adatbázis az entitások és kapcsolataik adott adatmodell szerinti elrendezése. A relációs adatbázis nemcsak táblákból áll: sémák, indexek, nézetek, kényszerek, triggerek, tárolt eljárások, függvények, felhasználók, szerepkörök és metaadatok is tartozhatnak hozzá.
+
+Az **adatbázis-kezelő rendszer (DBMS)** az adatbázis létrehozását és karbantartását támogató szoftverrendszer. Feladata többek között az adattárolás, lekérdezés, séma- és tranzakciókezelés, jogosultságkezelés, mentés és helyreállítás, valamint az adatintegritás biztosítása.
+
+## SQL
+
+Az **SQL (Structured Query Language)** a relációs adatbázisok szabványos lekérdező nyelve, de nem kizárólag lekérdezésre használható.
+
+| Csoport | Feladat | Példák |
+|---|---|---|
+| DDL | adatdefiníció | `CREATE`, `ALTER`, `DROP` |
+| DML | adatmódosítás | `INSERT`, `UPDATE`, `DELETE` |
+| DQL | lekérdezés | `SELECT` |
+| TCL | tranzakciókezelés | `COMMIT`, `ROLLBACK`, `SAVEPOINT` |
+| DCL | jogosultságkezelés | `GRANT`, `REVOKE` |
+
+Az első héten a DQL, vagyis a `SELECT` utasítás használatára koncentrálunk.
+
+## A SELECT utasítás
+
+A lekérdezés általános szerkezete:
+
+```sql
+SELECT ...
+FROM ...
+WHERE ...
+GROUP BY ...
+HAVING ...
+ORDER BY ...;
+```
+
+Ezek közül az első héten elsősorban a `SELECT`, `FROM`, `WHERE` és `ORDER BY` részeket használjuk.
+
+### Teljes tábla és oszlopok kiválasztása
+
+```sql
+SELECT *
+FROM SalesLT.Product;
+```
+
+Csak bizonyos oszlopok:
+
+```sql
+SELECT Name, ListPrice
+FROM SalesLT.Product;
+```
+
+A `DISTINCT` az ismétlődő eredményértékek eltávolítására használható:
+
+```sql
+SELECT DISTINCT Color
+FROM SalesLT.Product;
+```
+
+## Excel → SQL
+
+| Excel-művelet | SQL | Példa |
+|---|---|---|
+| teljes táblázat | `SELECT *` | `SELECT * FROM SalesLT.Product` |
+| oszlopok kiválasztása | `SELECT` | `SELECT Name, ListPrice ...` |
+| duplikációk eltávolítása | `DISTINCT` | `SELECT DISTINCT Color ...` |
+| képlet / számított oszlop | kifejezés + `AS` | `ListPrice * 1.1 AS IncreasedPrice` |
+| szűrés | `WHERE` | `WHERE ListPrice > 1000` |
+| több feltétel | `AND`, `OR` | `WHERE Color='Black' AND ListPrice>1000` |
+| intervallum | `BETWEEN` | `WHERE ListPrice BETWEEN 500 AND 1000` |
+| értéklista | `IN` | `WHERE Color IN ('Black','Red')` |
+| szöveges keresés | `LIKE` | `WHERE Name LIKE 'Mountain%'` |
+
+## Számított oszlopok és alias
+
+A `SELECT` oszloplistájában kifejezések is szerepelhetnek. Az eredményoszlopnak az `AS` segítségével nevet adhatunk.
+
+```sql
+SELECT Name,
+       ListPrice,
+       ListPrice * 1.10 AS IncreasedPrice
+FROM SalesLT.Product;
+```
+
+## Sorok szűrése – WHERE
+
+A `WHERE` után logikai feltételt adunk meg.
+
+```sql
+SELECT Name, ListPrice
+FROM SalesLT.Product
+WHERE ListPrice > 1000;
+```
+
+Több feltétel az `AND` és `OR` operátorokkal kapcsolható össze.
+
+```sql
+SELECT Name, Color, ListPrice
+FROM SalesLT.Product
+WHERE Color = 'Black'
+  AND ListPrice > 1000;
+```
+
+### BETWEEN, IN és LIKE
+
+```sql
+WHERE ListPrice BETWEEN 500 AND 1000
+```
+
+```sql
+WHERE Color IN ('Black', 'Red', 'Blue')
+```
+
+```sql
+WHERE Name LIKE 'Mountain%'
+```
+
+A `%` tetszőleges számú karaktert helyettesít.
+
+## NULL érték
+
+A `NULL` hiányzó vagy ismeretlen értéket jelöl. Nem azonos a nullával vagy az üres szöveggel. `NULL` vizsgálatára az `IS NULL` és `IS NOT NULL` használható.
+
+```sql
+SELECT Name, Color
+FROM SalesLT.Product
+WHERE Color IS NULL;
+```
+
+## Rendezés – ORDER BY
+
+Az eredmény sorait az `ORDER BY` rendezi. Az alapértelmezett sorrend növekvő (`ASC`); csökkenő sorrendhez `DESC` használható.
+
+```sql
+SELECT Name, ListPrice
+FROM SalesLT.Product
+ORDER BY ListPrice DESC;
+```
+
+## Függvények
+
+Az SQL beépített függvényeket is biztosít. Az első héten néhány egyszerű skalár függvényt használunk.
+
+### Dátumfüggvények
+
+- `GETDATE()` – aktuális dátum és idő;
+- `DAY(d)`, `MONTH(d)`, `YEAR(d)` – dátum részei;
+- `DATEADD(...)` – dátumhoz időegységet ad;
+- `DATEDIFF(...)` – két dátum különbsége.
+
+```sql
+SELECT Name, YEAR(ModifiedDate) AS ModifiedYear
+FROM SalesLT.Product;
+```
+
+### Szövegfüggvények
+
+Gyakori példák: `LEN()`, `LEFT()`, `UPPER()` és `LOWER()`.
+
+```sql
+SELECT Name,
+       LEN(Name) AS NameLength,
+       UPPER(Name) AS UpperName
+FROM SalesLT.Product;
+```
+
+## Összefoglalás
+
+Az első hét végére képesnek kell lennünk egy tábla adatainak lekérdezésére, oszlopok kiválasztására, számított oszlopok létrehozására, sorok szűrésére és rendezésére, valamint néhány egyszerű SQL-függvény alkalmazására.

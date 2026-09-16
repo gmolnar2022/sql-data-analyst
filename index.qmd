@@ -1,0 +1,14 @@
+---
+title: "Adatbázis-kezelés és SQL"
+---
+
+## A kurzusról
+
+Ez a tananyag az adatbázis-kezelés és az SQL alapjait mutatja be adatelemzői nézőpontból. A hangsúly a relációs adatmodell megértésén és a gyakorlatban használható SQL-lekérdezéseken van.
+
+### 1. hét
+
+Az első héten a relációs adatbázisok alapfogalmait, a táblák közötti kapcsolatokat, a kulcsokat és kényszereket, majd az SQL egyszerű lekérdezéseit tanuljuk meg.
+
+- [Elmélet](week01/theory.qmd)
+- [Gyakorlat](week01/practical.qmd)

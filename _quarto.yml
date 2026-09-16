@@ -1,0 +1,27 @@
+project:
+  type: website
+
+website:
+  title: "Adatbázis-kezelés és SQL"
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - href: index.qmd
+        text: Kezdőlap
+      - section: "1. hét – Relációs adatbázisok és SQL alapok"
+        contents:
+          - href: week01/theory.qmd
+            text: Elmélet
+          - href: week01/practical.qmd
+            text: Gyakorlat
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+    smooth-scroll: true
+lang: hu
