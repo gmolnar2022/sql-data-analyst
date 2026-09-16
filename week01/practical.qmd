@@ -36,6 +36,8 @@ A lekérdezésekben elsősorban a `SalesLT.Product` táblát használjuk. A gyak
 ### 1. feladat
 Listázza a `SalesLT.Product` tábla összes adatát!
 
+**Ellenőrzés:** 295 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -48,6 +50,8 @@ FROM SalesLT.Product
 ### 2. feladat
 Listázza a termékek nevét (`Name`) és listaárát (`ListPrice`)!
 
+**Ellenőrzés:** 295 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -59,6 +63,8 @@ FROM SalesLT.Product
 
 ### 3. feladat
 Listázza a termékek azonosítóját, nevét, színét és listaárát ebben a sorrendben!
+
+**Ellenőrzés:** 295 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -75,6 +81,8 @@ FROM SalesLT.Product
 ### 4. feladat
 Listázza, milyen különböző színek (`Color`) fordulnak elő a termékek között!
 
+**Ellenőrzés:** 10 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -89,6 +97,8 @@ FROM SalesLT.Product
 ### 5. feladat
 Listázza a termék nevét és listaárát! A listaár oszlop jelenjen meg `Price` néven!
 
+**Ellenőrzés:** 295 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -101,6 +111,8 @@ FROM SalesLT.Product
 
 ### 6. feladat
 Listázza a termék nevét, listaárát és a listaár 10%-kal növelt értékét `IncreasedPrice` néven!
+
+**Ellenőrzés:** 295 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -115,6 +127,8 @@ FROM SalesLT.Product
 
 ### 7. feladat
 Listázza a termék nevét, standard költségét és listaárát, valamint a kettő különbségét `Difference` néven!
+
+**Ellenőrzés:** 295 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -133,6 +147,8 @@ FROM SalesLT.Product
 ### 8. feladat
 Listázza azokat a termékeket, amelyek listaára nagyobb 1000-nél!
 
+**Ellenőrzés:** 86 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -145,6 +161,8 @@ WHERE ListPrice > 1000
 
 ### 9. feladat
 Listázza a fekete (`Black`) termékek nevét, színét és listaárát!
+
+**Ellenőrzés:** 89 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -161,6 +179,8 @@ WHERE Color = 'Black'
 ### 10. feladat
 Listázza azokat a fekete termékeket, amelyek listaára nagyobb 1000-nél!
 
+**Ellenőrzés:** 25 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -176,6 +196,8 @@ WHERE Color = 'Black'
 
 ### 11. feladat
 Listázza azokat a termékeket, amelyek színe fekete vagy piros (`Red`)!
+
+**Ellenőrzés:** 127 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -195,6 +217,8 @@ WHERE Color = 'Black'
 ### 12. feladat
 Listázza azokat a termékeket, amelyek listaára 500 és 1000 között van!
 
+**Ellenőrzés:** 50 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -207,6 +231,8 @@ WHERE ListPrice BETWEEN 500 AND 1000
 
 ### 13. feladat
 Listázza a fekete, piros vagy kék (`Blue`) termékeket! Használja az `IN` operátort!
+
+**Ellenőrzés:** 153 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -223,6 +249,8 @@ WHERE Color IN ('Black', 'Red', 'Blue')
 ### 14. feladat
 Listázza azokat a termékeket, amelyek neve `Mountain` szóval kezdődik!
 
+**Ellenőrzés:** 37 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -235,6 +263,8 @@ WHERE Name LIKE 'Mountain%'
 
 ### 15. feladat
 Listázza azokat a termékeket, amelyek nevében bárhol szerepel a `Bike` karaktersorozat!
+
+**Ellenőrzés:** 5 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -251,6 +281,8 @@ WHERE Name LIKE '%Bike%'
 ### 16. feladat
 Listázza azokat a termékeket, amelyeknél nincs megadva szín!
 
+**Ellenőrzés:** 50 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -263,6 +295,8 @@ WHERE Color IS NULL
 
 ### 17. feladat
 Listázza azokat a termékeket, amelyeknél van megadva szín!
+
+**Ellenőrzés:** 245 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -279,6 +313,8 @@ WHERE Color IS NOT NULL
 ### 18. feladat
 Listázza a termékek nevét és listaárát a listaár szerint csökkenő sorrendben!
 
+**Ellenőrzés:** 295 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -291,6 +327,8 @@ ORDER BY ListPrice DESC
 
 ### 19. feladat
 Listázza a termékek nevét, színét és listaárát! Rendezze az eredményt először szín, azon belül listaár szerint csökkenő sorrendbe!
+
+**Ellenőrzés:** 295 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -308,6 +346,8 @@ ORDER BY Color, ListPrice DESC
 
 ### 20. feladat
 Listázza a termékek nevét, a név hosszát `NameLength`, valamint a módosítás évét `ModifiedYear` néven!
+
+**Ellenőrzés:** 295 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -327,6 +367,8 @@ Az alábbi feladatoknál már Önnek kell kiválasztania a megfelelő SQL-eszkö
 ### 21. feladat
 Listázza azoknak a termékeknek a nevét, színét és listaárát, amelyek színe `Black`, `Red` vagy `Silver`, és listaáruk legalább 1000! Az eredményt listaár szerint csökkenő sorrendben jelenítse meg!
 
+**Ellenőrzés:** 57 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -344,6 +386,8 @@ ORDER BY ListPrice DESC
 ### 22. feladat
 Listázza azokat a termékeket, amelyek nevében szerepel a `Mountain` szó! Jelenítse meg a termék nevét, listaárát és a listaár 20%-kal csökkentett értékét `DiscountPrice` néven!
 
+**Ellenőrzés:** 87 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -358,6 +402,8 @@ WHERE Name LIKE '%Mountain%'
 
 ### 23. feladat
 Listázza azokat a termékeket, amelyek listaára 100 és 500 között van, és nevük `L` betűvel kezdődik! A név jelenjen meg nagybetűkkel is `UpperName` néven!
+
+**Ellenőrzés:** 35 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
@@ -375,6 +421,8 @@ WHERE ListPrice BETWEEN 100 AND 500
 ### 24. feladat
 Listázza a `SalesLT.Customer` táblából azoknak az ügyfeleknek a keresztnevét, vezetéknevét és cégnevét, akiknek a keresztneve `J` betűvel vagy vezetékneve `S` betűvel kezdődik! Rendezze az eredményt vezetéknév, majd keresztnév szerint!
 
+**Ellenőrzés:** 174 sor
+
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
 ```sql
@@ -391,6 +439,8 @@ ORDER BY LastName, FirstName
 
 ### 25. feladat – Challenge
 Listázza azokat a `Black` vagy `Red` színű termékeket, amelyek listaára 500 és 2000 között van! Jelenítse meg nevüket, színüket, listaárukat, standard költségüket és a listaár és standard költség különbségét `PriceDifference` néven! Az eredményt a különbség szerint csökkenő sorrendben jelenítse meg!
+
+**Ellenőrzés:** 51 sor
 
 ::: {.callout-tip title="Megoldás" collapse="true"}
 
